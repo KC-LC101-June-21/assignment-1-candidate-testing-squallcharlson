@@ -1,14 +1,5 @@
 const input = require('readline-sync');
-
-let candidateName = "";
-let questions = ["Question 1. \nWho was the first American woman in space?\n", "Question 2. \nTrue or false: 5 kilometer == 5000 meters?\n", "Question 3. \n(5 + 3)/2 * 10 = ?\n", "Question 4. \nGiven the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?\n", "Question 5. \nWhat is the minimum crew size for the ISS?\n"];
-let correctAnswers = ["sally ride", "true", "40", "trajectory", "3"];
-let candidateAnswers = [];
-let yesNo = "";
-
-function askForName() {
-  candidateName = input.question(`
-░░░░░██╗░█████╗░██╗░░██╗░█████╗░
+const header = (`░░░░░██╗░█████╗░██╗░░██╗░█████╗░
 ░░░░░██║██╔══██╗╚██╗██╔╝██╔══██╗
 ░░░░░██║███████║░╚███╔╝░███████║
 ██╗░░██║██╔══██║░██╔██╗░██╔══██║
@@ -18,7 +9,16 @@ Japan Aerospace Exploration Agency
 Official Candidate Quiz 
 
 
-What is your name, astronaut?: `);
+`)
+
+let candidateName = "";
+let questions = ["Question 1. \nWho was the first American woman in space?\n", "Question 2. \nTrue or false: 5 kilometer == 5000 meters?\n", "Question 3. \n(5 + 3)/2 * 10 = ?\n", "Question 4. \nGiven the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2?\n", "Question 5. \nWhat is the minimum crew size for the ISS?\n"];
+let correctAnswers = ["sally ride", "true", "40", "trajectory", "3"];
+let candidateAnswers = [];
+let yesNo = "";
+
+function askForName() {
+  candidateName = input.question(`${header}What is your name, astronaut?: `);
 }
 
 function yesOrNo() {
@@ -34,26 +34,17 @@ function askQuestion() {
 
 function gradeQuiz(candidateAnswersFix) {
 
-  console.log(`░░░░░██╗░█████╗░██╗░░██╗░█████╗░
-░░░░░██║██╔══██╗╚██╗██╔╝██╔══██╗
-░░░░░██║███████║░╚███╔╝░███████║
-██╗░░██║██╔══██║░██╔██╗░██╔══██║
-╚█████╔╝██║░░██║██╔╝╚██╗██║░░██║
-░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
-Japan Aerospace Exploration Agency 
-Official Candidate Quiz 
-
-Candidate ${candidateName}, your answers have been logged and graded:\n\n`)
+  console.log(`${header}Candidate ${candidateName}, your answers have been logged and graded:\n\n`)
 
   let score = 0;
 
   for (let i = 0; i < questions.length; i++) {
     console.log(`> ${questions[i]}You answered ${candidateAnswers[i]}`);
       if (candidateAnswers[i] === correctAnswers[i]) {
-    console.log("CORRECT!\n\n")
+    console.log("CORRECT!\n")
     score++
      } else {
-    console.log(`Incorrect... The correct answer was: ${correctAnswers[i]}\n\n`);
+    console.log(`Incorrect... The correct answer was: ${correctAnswers[i]}\n`);
      }
   }
   let grade;
@@ -73,16 +64,7 @@ Candidate ${candidateName}, your answers have been logged and graded:\n\n`)
 function runProgram() {
   askForName();
   console.clear();
-  console.log(`░░░░░██╗░█████╗░██╗░░██╗░█████╗░
-░░░░░██║██╔══██╗╚██╗██╔╝██╔══██╗
-░░░░░██║███████║░╚███╔╝░███████║
-██╗░░██║██╔══██║░██╔██╗░██╔══██║
-╚█████╔╝██║░░██║██╔╝╚██╗██║░░██║
-░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
-Japan Aerospace Exploration Agency 
-Official Candidate Quiz 
-
-Hello ${candidateName}
+  console.log(`${header}Hello ${candidateName}
 Looking good today!
   
 >>> Are you ready for your test? <<<\n\n`);
