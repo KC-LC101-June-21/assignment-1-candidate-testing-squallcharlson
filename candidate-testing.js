@@ -39,7 +39,7 @@ function gradeQuiz(candidateAnswersFix) {
   let score = 0;
 
   for (let i = 0; i < questions.length; i++) {
-    console.log(`> ${questions[i]}You answered ${candidateAnswers[i]}`);
+    console.log(`> ${questions[i]}You answered: ${candidateAnswers[i]}`);
       if (candidateAnswers[i] === correctAnswers[i]) {
     console.log("CORRECT!\n")
     score++
@@ -71,7 +71,7 @@ Looking good today!
   yesOrNo();
     if (yesNo === "n" || yesNo === "no") {
       console.clear();
-      console.log(`Being an astronaut isn't for everyone.\n\nWe look forward to having you try again in the future ${candidateName}!\n\n───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
+      console.log(`Being an astronaut isn't for everyone.\n\nWe look forward to having you try again in the future, ${candidateName}!\n\n───█───▄▀█▀▀█▀▄▄───▐█──────▄▀█▀▀█▀▄▄
 ──█───▀─▐▌──▐▌─▀▀──▐█─────▀─▐▌──▐▌─█▀
 ─▐▌──────▀▄▄▀──────▐█▄▄──────▀▄▄▀──▐▌
 ─█────────────────────▀█────────────█
